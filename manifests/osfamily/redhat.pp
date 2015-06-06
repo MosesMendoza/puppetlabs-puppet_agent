@@ -30,11 +30,12 @@ class puppet_agent::osfamily::redhat {
     logoutput => 'on_failure',
   }
 
-  yumrepo { 'pc1_repo':
-    baseurl  => "https://yum.puppetlabs.com/${urlbit}/PC1/${::architecture}",
-    descr    => "Puppet Labs PC1 Repository",
+  yumrepo { 'pe_repo':
+    baseurl  => "https://vqt4g854yitgoc5.delivery.puppetlabs.net:8140/packages/3.8.0/el-7-x86_64",
+    descr    => "PE REPO",
     enabled  => true,
     gpgcheck => '1',
+    sslverify => false,
     gpgkey   => "file://$gpg_path",
   }
 }
